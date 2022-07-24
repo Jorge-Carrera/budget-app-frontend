@@ -11,26 +11,34 @@ export default function Transactions() {
     axios
       .get(`${API}/transactions`)
       .then((res) => setTXNS(res.data))
-      .catch((e) => console.log(e))
-  }, [])
+      .then((res) => getTotal(TXNS))
+      .catch((e) => console.log(e));
+  }, []);
 
-  
+  const getTotal = (TXNS) => {
+    let result = 0;
+    TXNS.map((txn) => {
+      result += Number(txn.amount);
+    });
+    setTotal(result);
+  };
+
   return (
     <div className="transactions">
       <section>
         <h1>Total: ${total}</h1>
         <table>
-        <thead>
-          <th>Date</th>
-          <th>Item Name</th>
-          <th>Amount</th>
-          <th>Category</th>
-        </thead>
-        <tbody>
-        {TXNS.map((txn, index) => {
-          return <Transaction key={index} txn={txn} i={index} />
-        })}
-        </tbody>
+          <thead>
+            <th>Date</th>
+            <th>Item Name</th>
+            <th>Amount</th>
+            <th>Category</th>
+          </thead>
+          <tbody>
+            {TXNS.map((txn, index) => {
+              return <Transaction key={index} txn={txn} i={index} />;
+            })}
+          </tbody>
         </table>
       </section>
     </div>

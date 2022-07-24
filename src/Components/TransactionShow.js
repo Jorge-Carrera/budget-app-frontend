@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import {Link, useParams, useNavigate} from 'react-router-dom'
 import axios from "axios";
+import Button from 'react-bootstrap/Button'
+import Card from 'react-bootstrap/Card'
+
 const API = process.env.REACT_APP_API_URL;
 
 export default function TransactionShow() {
@@ -24,25 +27,29 @@ export default function TransactionShow() {
 
   return (
     <div>
-      <h2>Name: {transaction.item_name}</h2>
+      <Card>
+      <Card.Title>Name: {transaction.item_name}</Card.Title>
       <ul>
+        <Card.Text>
         <li>Amount: ${transaction.amount}</li>
         <li>Date: {transaction.date}</li>
         <li>From: {transaction.from}</li>
         <li>Category: {transaction.category}</li>
+        </Card.Text>
       </ul>
+      </Card>
       <section>
         <Link to={`/transactions`}>
-          <button>Back</button>
+          <Button>Back</Button>
         </Link>
       </section>
       <section>
         <Link to={`/transactions/${index}/edit`}>
-        <button>Edit</button>
+        <Button variant="warning">Edit</Button>
         </Link>
       </section>
       <section>
-        <button onClick={handleDelete}>Delete Entry</button>
+        <Button variant="danger" onClick={handleDelete}>Delete Entry</Button>
       </section>
     </div>
   )
