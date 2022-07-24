@@ -37,6 +37,11 @@ export default function TransactionShow() {
         </Link>
       </section>
       <section>
+        <Link to={`/transactions/${index}/edit`}>
+        <button>Edit</button>
+        </Link>
+      </section>
+      <section>
         <button onClick={handleDelete}>Delete Entry</button>
       </section>
     </div>
