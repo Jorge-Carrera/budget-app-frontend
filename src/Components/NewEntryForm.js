@@ -22,7 +22,7 @@ export default function NewEntryForm() {
 
   const [transaction, setTransaction] = useState({
     item_name: "",
-    amount: 100,
+    amount: 10,
     date: "",
     from: "",
     category: "",
@@ -31,14 +31,6 @@ export default function NewEntryForm() {
   const handleChange = (event) => {
     setTransaction({ ...transaction, [event.target.id]: event.target.value });
   };
-
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   if (event.target.checkValidity()) {
-  //     setValidated(true)
-  //     addNewEntry();
-  //   }
-  // };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -57,7 +49,7 @@ export default function NewEntryForm() {
     <div>
       <br />
       <Container>
-        <h1>Add a new Entry</h1>
+        <h1>Add A New Entry:</h1>
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
           <Row>
             <Col md>
@@ -109,7 +101,7 @@ export default function NewEntryForm() {
                   required
                   id="from"
                   type="text"
-                  name="post"
+                  name="from"
                   value={transaction.from}
                   placeholder="From"
                   onChange={handleChange}
