@@ -7,18 +7,20 @@ import { currencyFormatter } from "../utils";
 export default function AddGoalModal({
   show,
   handleClose,
-  max,
-  min,
-  setMin,
-  setMax,
+  maxGoal,
+  minGoal,
+  setMinGoal,
+  setMaxGoal,
 }) {
   const maxRef = useRef();
   const minRef = useRef();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setMax(maxRef.current.value);
-    setMin(minRef.current.value);
+    setMaxGoal(maxRef.current.value);
+    sessionStorage.setItem("maxGoal", maxRef.current.value);
+    setMinGoal(minRef.current.value);
+    sessionStorage.setItem("minGoal", minRef.current.value);
     handleClose();
   };
 
@@ -33,7 +35,7 @@ export default function AddGoalModal({
             <Form.Label>New Goal</Form.Label>
             <Form.Control
               ref={maxRef}
-              placeholder={`Current goal: ${currencyFormatter.format(max)}`}
+              placeholder={`Current goal: ${currencyFormatter.format(maxGoal)}`}
               type="number"
               required
               min={0}
@@ -43,7 +45,7 @@ export default function AddGoalModal({
             <Form.Label>Set Minimum</Form.Label>
             <Form.Control
               ref={minRef}
-              placeholder={`Current Min: ${currencyFormatter.format(min)}`}
+              placeholder={`Current Min: ${currencyFormatter.format(minGoal)}`}
               type="number"
               required
             />
