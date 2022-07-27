@@ -62,7 +62,7 @@ export default function EditTransaction() {
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
           <Row>
             <Col md>
-              <Form.Group controlId="formName">
+              <Form.Group>
                 <Form.Label>Name:</Form.Label>
                 <Form.Control
                   required
@@ -82,12 +82,12 @@ export default function EditTransaction() {
             </Col>
             <br />
             <Col md>
-              <Form.Group controlId="formDate">
+              <Form.Group>
                 <Form.Label>Date:</Form.Label>
                 <Form.Control
                   required
                   id="date"
-                  type="text"
+                  type="date"
                   value={transaction.date}
                   placeholder="Date"
                   onChange={handleChange}
@@ -104,13 +104,13 @@ export default function EditTransaction() {
           <br />
           <Row>
             <Col md>
-              <Form.Group controlId="formFrom">
+              <Form.Group>
                 <Form.Label>From:</Form.Label>
                 <Form.Control
                   required
                   id="from"
                   type="text"
-                  name="post"
+                  name="from"
                   value={transaction.from}
                   placeholder="From"
                   onChange={handleChange}
@@ -124,7 +124,7 @@ export default function EditTransaction() {
               </Form.Group>
             </Col>
             <Col md>
-              <Form.Group controlId="formAmount">
+              <Form.Group>
                 <Form.Label>Amount:</Form.Label>
                 <Form.Control
                   required

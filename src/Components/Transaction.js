@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { currencyFormatter } from "../utils";
+import { currencyFormatter, dateFormatter } from "../utils";
 
 export default function Transaction({ txn, i }) {
   return (
     <tr>
       <td>
-        <p>{txn.date}</p>
+        <p>{dateFormatter.format(new Date(txn.date))}</p>
       </td>
       <td>
         <p> {txn.item_name}</p>

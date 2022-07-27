@@ -37,13 +37,11 @@ export default function NewEntryForm() {
     if (event.target.checkValidity() === false) {
       event.stopPropagation();
     }
-    if(event.target.checkValidity() === true){
-      addNewEntry()
+    if (event.target.checkValidity() === true) {
+      addNewEntry();
     }
     setValidated(true);
   };
-
-
 
   return (
     <div>
@@ -53,7 +51,7 @@ export default function NewEntryForm() {
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
           <Row>
             <Col md>
-              <Form.Group controlId="formName">
+              <Form.Group>
                 <Form.Label>Name:</Form.Label>
                 <Form.Control
                   required
@@ -73,12 +71,12 @@ export default function NewEntryForm() {
             </Col>
             <br />
             <Col md>
-              <Form.Group controlId="formDate">
+              <Form.Group>
                 <Form.Label>Date:</Form.Label>
                 <Form.Control
                   required
                   id="date"
-                  type="text"
+                  type="date"
                   value={transaction.date}
                   placeholder="Date"
                   onChange={handleChange}
@@ -95,7 +93,7 @@ export default function NewEntryForm() {
           <br />
           <Row>
             <Col md>
-              <Form.Group controlId="formFrom">
+              <Form.Group>
                 <Form.Label>From:</Form.Label>
                 <Form.Control
                   required
@@ -115,7 +113,7 @@ export default function NewEntryForm() {
               </Form.Group>
             </Col>
             <Col md>
-              <Form.Group controlId="formAmount">
+              <Form.Group>
                 <Form.Label>Amount:</Form.Label>
                 <Form.Control
                   required
@@ -155,8 +153,12 @@ export default function NewEntryForm() {
               <option value="Utilities">Utilities</option>
               <option value="Entertainment">Entertainment</option>
             </Form.Select>
-            <Form.Control.Feedback type="valid">Looks Good</Form.Control.Feedback>
-          <Form.Control.Feedback type="invalid">Please select a category</Form.Control.Feedback>
+            <Form.Control.Feedback type="valid">
+              Looks Good
+            </Form.Control.Feedback>
+            <Form.Control.Feedback type="invalid">
+              Please select a category
+            </Form.Control.Feedback>
           </Form.Group>
           <br />
           <Button variant="secondary" type="submit">
