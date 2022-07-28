@@ -49,13 +49,13 @@ export default function Transactions() {
   };
 
   const getClassNames = (amount, maxGoal, minGoal) => {
-    const classNames = [];
+    const classNames = ["bg-opacity-50"];
     if (amount > maxGoal) {
-      classNames.push("bg-success", "bg-opacity-50");
+      classNames.push("bg-success");
     } else if (amount > minGoal && amount < maxGoal) {
-      classNames.push("bg-warning", "bg-opacity-50");
+      classNames.push("bg-warning");
     } else {
-      classNames.push("bg-danger", "bg-opacity-50");
+      classNames.push("bg-danger");
     }
     return classNames.join(" ");
   };
