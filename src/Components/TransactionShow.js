@@ -28,9 +28,9 @@ export default function TransactionShow() {
 
   return (
     <div className="d-flex align-items-center justify-content-center text-center mt-5">
-      <Card className="mr-5" style={{ width: "40rem" }}>
-        <Card.Header as="h5">Entry Number: {Number(index) + 1}</Card.Header>
-        <Card.Title className="mt-3">Name: {transaction.item_name}</Card.Title>
+      <Card className="mr-5 showCard" >
+        <Card.Header as="h3">Entry Number: {Number(index) + 1}</Card.Header>
+        <Card.Title className="mt-3 showCardTitle">Name: {transaction.item_name}</Card.Title>
         <Card.Body>
           <ul>
             <Card.Text>
@@ -41,16 +41,16 @@ export default function TransactionShow() {
             </Card.Text>
           </ul>
           <Link to={`/transactions`}>
-            <Button className="me-2" variant="secondary">
+            <Button className="me-4 mt-4" variant="outline-dark">
               Back
             </Button>
           </Link>
           <Link to={`/transactions/${index}/edit`}>
-            <Button className="me-2" variant="secondary">
+            <Button className="me-4 mt-4" variant="outline-dark">
               Edit
             </Button>
           </Link>
-          <Button variant="secondary" onClick={handleDelete}>
+          <Button className="mt-4" variant="outline-dark" onClick={handleDelete}>
             Delete Entry
           </Button>
         </Card.Body>

@@ -74,6 +74,22 @@ body {
   background-color: #93827F;
 }
 
+.showCard {
+  width: 40rem;
+  height: 36rem;
+  background-color: #93827F;
+}
+
+.showCard li {
+font-size: 30px;
+margin-top: 25px;
+text-decoration: solid underline;
+}
+
+.showCardTitle {
+  font-size: 30px;
+}
+
 
 @media screen and (max-width: 500px) {
   .homeH1 {
