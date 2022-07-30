@@ -3,7 +3,6 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import { dateFormatter } from "../utils";
 
 
 const API = process.env.REACT_APP_API_URL;
@@ -19,14 +18,13 @@ export default function TransactionShow() {
       .then((res) => setTransaction(res.data))
       .catch((err) => console.log(err));
   }, [index]);
-
+  
   const handleDelete = () => {
     axios
       .delete(`${API}/transactions/${index}`)
       .then((res) => navigate("/transactions"))
       .catch((err) => console.log(err));
   };
-
   return (
     <div className="d-flex align-items-center justify-content-center text-center mt-5">
       <Card responsive className="mr-5 showCard" >
@@ -36,7 +34,7 @@ export default function TransactionShow() {
           <ul>
             <Card.Text>
               <li>Amount: ${transaction.amount}</li>
-              <li>Date: {dateFormatter.format(new Date(transaction.date))}</li>
+              <li>Date: {transaction.date}</li>
               <li>From: {transaction.from}</li>
               <li>Category: {transaction.category}</li>
             </Card.Text>
