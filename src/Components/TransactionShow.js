@@ -28,7 +28,7 @@ export default function TransactionShow() {
 
   return (
     <div className="d-flex align-items-center justify-content-center text-center mt-5">
-      <Card className="mr-5 showCard" >
+      <Card responsive className="mr-5 showCard" >
         <Card.Header as="h3">Entry Number: {Number(index) + 1}</Card.Header>
         <Card.Title className="mt-3 showCardTitle">Name: {transaction.item_name}</Card.Title>
         <Card.Body>

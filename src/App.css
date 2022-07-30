@@ -91,7 +91,7 @@ text-decoration: solid underline;
 }
 
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 680px) {
   .homeH1 {
     font-size: 2rem;
   }
@@ -103,5 +103,16 @@ text-decoration: solid underline;
   }
   .transactionsContainer {
     margin-top: 1rem;
+  }
+  .showCard {
+    width: auto;
+    height: auto;
+  }
+  .showCard li {
+    font-size: 15px;
+    margin-top: 10px;
+  }
+  .showCardTitle {
+    font-size: 20px;
   }
 }
