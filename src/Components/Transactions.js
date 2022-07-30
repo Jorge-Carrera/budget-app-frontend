@@ -63,12 +63,12 @@ export default function Transactions() {
   return (
     <div className="transactions">
       <section>
-        <Container style={{ marginTop: "6rem" }}>
+        <Container className="transactionsContainer">
           <Card className={getClassNames(amount, maxGoal, minGoal)}>
             <Card.Body>
               <div className="d-flex justify-content-end">
                 <Button
-                  variant="outline-secondary"
+                  variant="outline-dark"
                   onClick={() => setShowGoalModal(true)}
                 >
                   Set A New Goal
@@ -89,10 +89,10 @@ export default function Transactions() {
               ></ProgressBar>
             </Card.Body>
           </Card>
-          <Table className="my-3" striped bordered hover variant="dark">
+          <Table className="my-3" striped bordered hover responsive>
             <thead>
-              <tr>
-                <th>Date</th>
+              <tr className="tableHead">
+                <th >Date</th>
                 <th>Item Name</th>
                 <th>Amount</th>
                 <th>Category</th>

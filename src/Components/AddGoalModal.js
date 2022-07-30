@@ -1,7 +1,7 @@
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { currencyFormatter } from "../utils";
 
 export default function AddGoalModal({
@@ -14,19 +14,27 @@ export default function AddGoalModal({
 }) {
   const maxRef = useRef();
   const minRef = useRef();
+  const [validated, setValidated] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setMaxGoal(maxRef.current.value);
-    sessionStorage.setItem("maxGoal", maxRef.current.value);
-    setMinGoal(minRef.current.value);
-    sessionStorage.setItem("minGoal", minRef.current.value);
-    handleClose();
+
+    if (!e.target.checkValidity()) {
+      e.stopPropagation();
+    }
+    if (e.target.checkValidity()) {
+      setMaxGoal(maxRef.current.value);
+      sessionStorage.setItem("maxGoal", maxRef.current.value);
+      setMinGoal(minRef.current.value);
+      sessionStorage.setItem("minGoal", minRef.current.value);
+      handleClose();
+    }
+    setValidated(true);
   };
 
   return (
     <Modal show={show} onHide={handleClose}>
-      <Form onSubmit={handleSubmit}>
+      <Form noValidate validated={validated} onSubmit={handleSubmit}>
         <Modal.Header closeButton>
           <Modal.Title>Set A New Goal</Modal.Title>
         </Modal.Header>
@@ -40,6 +48,12 @@ export default function AddGoalModal({
               required
               min={0}
             />
+             <Form.Control.Feedback type="invalid">
+                  Please set a new savings goal
+                </Form.Control.Feedback>
+                <Form.Control.Feedback type="valid">
+                  Looks Good! Best of Luck!
+                </Form.Control.Feedback>
           </Form.Group>
           <Form.Group className="mb-3" controlId="minimum">
             <Form.Label>Set Minimum</Form.Label>
@@ -47,7 +61,6 @@ export default function AddGoalModal({
               ref={minRef}
               placeholder={`Current Min: ${currencyFormatter.format(minGoal)}`}
               type="number"
-              required
             />
           </Form.Group>
           <div className="d-flex justify-content-end">

@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import logo from "../images/money-map.jpg";
+
 
 export default function Home() {
   return (
-    <div>
-      <h1>Gain Control of Your Money</h1>
+    <div className="article">
+      <img src={logo} className="homeImg" />
+      <section className="h1Section">
+      <h1 className="homeH1 font-link">Conquer your wallet, then the World...</h1>
+      </section>
     </div>
-  )
+  );
 }

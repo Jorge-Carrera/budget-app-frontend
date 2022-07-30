@@ -32,12 +32,13 @@ export default function NewEntryForm() {
     setTransaction({ ...transaction, [event.target.id]: event.target.value });
   };
 
+    
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (event.target.checkValidity() === false) {
+    if (!event.target.checkValidity()) {
       event.stopPropagation();
     }
-    if (event.target.checkValidity() === true) {
+    if (event.target.checkValidity()) {
       addNewEntry();
     }
     setValidated(true);
